@@ -1,7 +1,7 @@
 import struct
 import device
 import probe
-import register
+from register import *
 
 
 class Monarch_BMS(device.CustomName, device.battery):
