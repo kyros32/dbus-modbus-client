@@ -39,4 +39,4 @@ models = {
 
 probe.add_handler(probe.ModelRegister(Reg_u16(0x1000), models,
                                       methods=['tcp'],
-                                      units=[1]))
+                                      units=[3]))
