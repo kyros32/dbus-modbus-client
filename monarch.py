@@ -22,10 +22,10 @@ class Monarch_BMS(device.CustomName, device.battery):
 
         self.data_regs = [
           
-            Reg_s16(30015, '/Info/MaxChargeCurrent',      1, '%.0f A'),
-            Reg_s16(30017, '/Info/MaxDischargeCurrent ',   1, '%.0f A'),
-            Reg_s16(30019, '/Info/MaxChargeVoltage',   0.001, '%.0f V'),
-            Reg_s16(30021, '/Info/BatteryLowVoltage',   10, '%.0f V'),
+            Reg_f32b(30015, '/Info/MaxChargeCurrent',      1, '%.0f A'),
+            Reg_f32b(30017, '/Info/MaxDischargeCurrent ',   1, '%.0f A'),
+            Reg_f32b(30019, '/Info/MaxChargeVoltage',   1, '%.0f V'),
+            Reg_f32b(30021, '/Info/BatteryLowVoltage',   1, '%.0f V'),
             Reg_text(30023, 8, '/Info/ChargeRequest'),
         ]
 
