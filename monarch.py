@@ -16,17 +16,17 @@ class Monarch_BMS(device.CustomName, device.battery):
             Reg_text(30001, 8, '/Serial'),
             Reg_text(30005, 8, '/HardwareVersion'),
             Reg_text(30009, 8, '/FirmwareVersion'),
-            Reg_text(30013, 8, '/CustomName'),
+            Reg_text(30017, 8, '/CustomName'),
 
         ]
 
         self.data_regs = [
           
-            Reg_f32b(30015, '/Info/MaxChargeCurrent',      1, '%.0f A'),
-            Reg_f32b(30017, '/Info/MaxDischargeCurrent ',   1, '%.0f A'),
-            Reg_f32b(30019, '/Info/MaxChargeVoltage',   1, '%.0f V'),
-            Reg_f32b(30021, '/Info/BatteryLowVoltage',   1, '%.0f V'),
-            Reg_text(30023, 8, '/Info/ChargeRequest'),
+            Reg_f32b(30021, '/Info/MaxChargeCurrent',      1, '%.0f A'),
+            Reg_f32b(30023, '/Info/MaxDischargeCurrent ',   1, '%.0f A'),
+            Reg_f32b(30025, '/Info/MaxChargeVoltage',   1, '%.0f V'),
+            Reg_f32b(30027, '/Info/BatteryLowVoltage',   1, '%.0f V'),
+            Reg_bit(30029, '/Info/ChargeRequest', bit=0),
         ]
 
 
@@ -38,6 +38,6 @@ models = {
     }
 }
 
-probe.add_handler(probe.ModelRegister(Reg_text(30011, 8), models,
+probe.add_handler(probe.ModelRegister(Reg_text(30013, 8), models,
                                       methods=['tcp'],
                                       units=[3]))
