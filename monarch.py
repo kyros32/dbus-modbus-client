@@ -4,7 +4,7 @@ import probe
 from register import *
 
 
-class Monarch_BMS(device.CustomName, device.battery):
+class Monarch_BMS(device.CustomName, device.SubDevice):
     vendor_id = 'solarbaron'
     vendor_name = 'SOLAR BARON'
     productid = 0xB0414
