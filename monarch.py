@@ -3,6 +3,16 @@ import device
 import probe
 from register import *
 
+class Reg_serial(Reg, str):
+    """ Serial is a 32-bit integer as serial number. Make it a string
+        because that is what dbus (and modbus-tcp) expects. """
+    def __init__(self, base, name):
+        super().__init__(base, 2, name)
+
+    def decode(self, values):
+        v = struct.unpack('>i', struct.pack('>2H', *values))
+        return self.update(str(v[0]))
+
 
 class Monarch_BMS(device.CustomName, device.battery):
     vendor_id = 'solarbaron'
