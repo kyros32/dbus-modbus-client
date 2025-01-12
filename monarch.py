@@ -15,7 +15,7 @@ class Monarch_BMS(device.Battery):
         self.info_regs = [
             Reg_text(30001, 8, '/Serial'),
             Reg_text(30005, 8, '/HardwareVersion'),
-            Reg_text(30009, 8, '/FirmwareVersion')
+            Reg_text(30009, 1, '/FirmwareVersion')
 
         ]
 
@@ -32,14 +32,14 @@ class Monarch_BMS(device.Battery):
 
 models = {
     'Monarch_v1': { # Monarch_v1
-        'model': '101',
+        'model': 'AA',
         'handler': Monarch_BMS,
     }
 }
-
+#Modbus device/unit ID 154 -> but also need to specify port to 503
 probe.add_handler(probe.ModelRegister(Reg_text(30013, 1), models,
                                       methods=['tcp'],
                                       units=[154],
                                       port=503))
 
-#Modbus device/unit ID 154 -> but also need to specify port to 503
+
