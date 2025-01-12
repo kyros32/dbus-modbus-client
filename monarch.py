@@ -40,6 +40,7 @@ models = {
 
 probe.add_handler(probe.ModelRegister(Reg_text(30013, 8), models,
                                       methods=['tcp'],
-                                      units=[154]))
+                                      units=[154],
+                                      port=[503]))
 
 #Modbus device/unit ID 154 -> but also need to specify port to 503
