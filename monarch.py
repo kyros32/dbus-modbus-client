@@ -71,7 +71,7 @@ models = {
 
 # Add the Monarch BMS to the probe system
 probe.add_handler(probe.ModelRegister(
-    Reg_u16(12, 1, access='input'),  # Adjusted register and size for model identification
+    Reg_s16(12, 1, access='input'),  # Adjusted register and size for model identification
     models,
     methods=['tcp'],  # Communication method
     units=[154],  # Modbus unit ID
