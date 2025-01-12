@@ -2,13 +2,14 @@ import struct
 import device
 import probe
 from register import *
+from device import BaseDevice
 
-
-class Monarch_BMS(device.Battery):
+class Monarch_BMS(BaseDevice):
     vendor_id = 'solarbaron'
     vendor_name = 'SOLAR BARON'
     productid = 0xB0414
     productname = 'MONARCH BMS'
+    device_type = 'battery'
     min_timeout = 0.5
 
     def __init__(self, *args, **kwargs):
@@ -32,6 +33,9 @@ class Monarch_BMS(device.Battery):
             Reg_bit(30029, '/Info/ChargeRequest', bit=0),
         ]
 
+    def init_dbus(self):
+        super().init_dbus()
+        self.dbus.add_path('/CustomName', self._custom_name)
 
 # Define the models
 models = {
